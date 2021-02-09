@@ -11,5 +11,13 @@ int main()
     std::cout << k.Search(m)<<std::endl;
     k.replacement("t", "k");
     std::cout << k << std::endl;
+    if(k==m)
+    {
+        std::cout << "Yes" << std::endl;
+    }
+    else
+    {
+        std::cout << "No" << std::endl;
+    }
     return 0;
 }
