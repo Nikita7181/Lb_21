@@ -5,7 +5,7 @@
 #include "String.h"
 #include <iostream>
 
-int String::Size(const char* str_t)
+int String::Size(const char* str_t)// функция получения размреа строки
 {
    int counter=0;
     if (str_t!=nullptr)
@@ -24,7 +24,7 @@ int String::Size()
     return size;
 }
 
-char* String::get_str()
+char* String::get_str()// геттер
 {
     return this->str;
 }
@@ -62,7 +62,7 @@ String::~String()//деструктор
     }
 }
 
-int String::Search(String& My)
+int String::Search(String& My)// поиск
 {
     
     for (int i = 0; i < Size(str); ++i)
