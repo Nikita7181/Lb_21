@@ -106,7 +106,7 @@ void String::replacement(char* My, char* My1)// функция замены си
     return;
 }
 
-String & String::operator+( String& My2 )// в разработке
+String & String::operator+( String& My2 )// инкапсуляция
 {
     int s1 = this->Size();
     int s2 = My2.Size();
