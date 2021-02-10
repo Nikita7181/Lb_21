@@ -8,6 +8,7 @@
 int String::Size(const char* str_t)// функция получения размреа строки
 {
    int counter=0;
+   
     if (str_t!=nullptr)
     {
         while (str_t[counter] != '\0')
@@ -15,12 +16,14 @@ int String::Size(const char* str_t)// функция получения разм
             counter++;
         }
     }
+    
     return counter;
 }
 
 int String::Size()// пользовательская функция получения размера
 {
     int counter=0;
+    
     if (str!=nullptr)
     {
         while (str[counter] != '\0')
@@ -28,18 +31,22 @@ int String::Size()// пользовательская функция получ�
             counter++;
         }
     }
+    
     return counter;
 }
 
 char* String::get_str()// геттер
 {
     int size = this->Size();
+    
     if (size == 0) return nullptr;
     char* result = new char[size];
+    
     for (int i=0; i<size; i++)
     {
         result[i] = str[i];
     }
+    
     return result;
 }
 
@@ -52,6 +59,7 @@ String::String(const char* ob)//конструктор с параметрами
 {
     int length=Size(ob);
     str = new char[length];
+    
     for (int i = 0; i < length; i++)
     {
         str[i] =ob[i];
@@ -61,6 +69,7 @@ String::String(const char* ob)//конструктор с параметрами
 String::String( String& ob)//конструктор копирования
 {
     int length=Size(ob.str);
+    
     str = new char[length];
     for (int i = 0; i < length; i++)
     {
@@ -94,6 +103,7 @@ void String::replacement(char* My, char* My1)// функция замены си
 // сначала символ который хотим замнить, потм символ, который хотим вставить
 {
     int counter = 0;
+    
     for (int i = 0; i < Size(str); ++i)
     {
         if (My[0] == str[i])
@@ -103,10 +113,11 @@ void String::replacement(char* My, char* My1)// функция замены си
         }
     }
     std::cout << "number of replaced characters: " << counter << std::endl;
+    
     return;
 }
 
-String & String::operator+( String& My2 )// инкапсуляция
+String & String::operator+( String& My2 )// в разработке
 {
     int s1 = this->Size();
     int s2 = My2.Size();
@@ -127,6 +138,7 @@ String & String::operator+( String& My2 )// инкапсуляция
     {
         this->str[s1+i]=My2[i];
     }
+    
     return * this;
 }
 
@@ -154,10 +166,12 @@ String& String::operator=(String& My)// оператор присваивани�
 std::ostream& operator<<(std::ostream& os, String& My)// вывод
 {
     int length = My.Size();
+    
     for (int i = 0; i < length; ++i)
     {
         os << My[i];
     }
+    
     return os;
 }
 
@@ -174,5 +188,6 @@ bool String::operator==(String& My)
     {
         if (this->str[i] != My[i]) return false;
     }
+    
     return true;
 }
