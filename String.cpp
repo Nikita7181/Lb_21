@@ -18,15 +18,29 @@ int String::Size(const char* str_t)// функция получения разм
     return counter;
 }
 
-int String::Size()
+int String::Size()// пользовательская функция получения размера
 {
-    int size = this->Size(this->get_str());
-    return size;
+    int counter=0;
+    if (str!=nullptr)
+    {
+        while (str[counter] != '\0')
+        {
+            counter++;
+        }
+    }
+    return counter;
 }
 
 char* String::get_str()// геттер
 {
-    return this->str;
+    int size = this->Size();
+    if (size == 0) return nullptr;
+    char* result = new char[size];
+    for (int i=0; i<size; i++)
+    {
+        result[i] = str[i];
+    }
+    return result;
 }
 
 
@@ -96,28 +110,24 @@ String & String::operator+( String& My2 )// в разработке
 {
     int s1 = this->Size();
     int s2 = My2.Size();
-
-
-
+    
     char * tmp = this->get_str();
     delete [] this->str;
-    str=nullptr;
+    this->str=nullptr;
     this->str = new char [s1+s2];
-    for (int i = 0; i < s1; i++)
+    for (int i = s1+s2; i < Size(); i++)
     {
-        str[i]='\0';
+        this->str[i] ='\0';
     }
     for (int i = 0; i < s1; i++)
     {
-        this->str[i]=tmp[i];
+        this->str[i] =tmp[i];
     }
     for(int i = 0; i < s2; i++) 
     {
         this->str[s1+i]=My2[i];
     }
-
     return * this;
-
 }
 
 char String::operator[](int index)
@@ -125,7 +135,7 @@ char String::operator[](int index)
     return this->str[index];
 }
 
-String& String::operator=(String& My)// в разработке
+String& String::operator=(String& My)// оператор присваивания
 {
     if (this == &My)
         return *this;
@@ -143,7 +153,7 @@ String& String::operator=(String& My)// в разработке
 
 std::ostream& operator<<(std::ostream& os, String& My)// вывод
 {
-    int length = My.Size(My.get_str());
+    int length = My.Size();
     for (int i = 0; i < length; ++i)
     {
         os << My[i];
@@ -151,8 +161,9 @@ std::ostream& operator<<(std::ostream& os, String& My)// вывод
     return os;
 }
 
-std::istream& operator>>(std::istream& is, String& My)// в разработке
+std::istream& operator>>(std::istream& is, String& My)// оператор ввода
 {
+
 }
 
 bool String::operator==(String& My)
