@@ -6,7 +6,7 @@ class String
 private:
     char* str;
 public:
-    char* get_str();
+    char* get_str();// геттер
     int Size(const char* str);// определение длинны строки, функция класса
     int Size();// пользовательская функция(выполняется на объекте класаа)
     String();// конструктор по умолчанию
