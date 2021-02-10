@@ -180,15 +180,12 @@ std::istream& operator>>(std::istream& is, String& My)// оператор вво
     char* tmp = new char[1024];
     
     is>> tmp;
-    String str_tmp;
-    
-    My = str_tmp;
-    delete [] tmp;
-    
+    String temp;
+    My = temp;
     return is;
 }
 
-bool String::operator==(String& My)// оператор сравнения 
+bool String::operator==(String& My)// оператор сравнения
 {
 
     if (this->Size() != My.Size()) return false;
