@@ -175,7 +175,7 @@ std::ostream& operator<<(std::ostream& os, String& My)// вывод
     return os;
 }
 
-std::istream& operator>>(std::istream& is, String& My)// оператор ввода
+std::istream& operator>>(std::istream& is, String& My)// оператор ввода(в разработке)
 {
     char* tmp = new char[1024];
     
