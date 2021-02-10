@@ -27,5 +27,8 @@ int main()
     
     s = k+m;
     std::cout << s << std::endl;
+    String My;
+    std::cin >> My;
+    std::cout << My.Size() << std::endl;
     return 0;
 }
