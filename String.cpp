@@ -117,7 +117,7 @@ void String::replacement(char* My, char* My1)// функция замены си
     return;
 }
 
-String & String::operator+( String& My2 )// в разработке
+String & String::operator+( String& My2 )// инкапсулция
 {
     int s1 = this->Size();
     int s2 = My2.Size();
@@ -177,10 +177,18 @@ std::ostream& operator<<(std::ostream& os, String& My)// вывод
 
 std::istream& operator>>(std::istream& is, String& My)// оператор ввода
 {
-
+    char* tmp = new char[1024];
+    
+    is>> tmp;
+    String str_tmp;
+    
+    My = str_tmp;
+    delete [] tmp;
+    
+    return is;
 }
 
-bool String::operator==(String& My)
+bool String::operator==(String& My)// оператор сравнения 
 {
 
     if (this->Size() != My.Size()) return false;
