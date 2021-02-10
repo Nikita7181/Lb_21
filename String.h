@@ -22,5 +22,5 @@ public:
 };
 
 std::ostream& operator<<(std::ostream& is, String& My);//вывод
-std::istream& operator>>(std::istream& os, String& My);//ввод
+std::istream& operator>>(std::istream& os, String& My);//ввод(в разработке)
 
