@@ -27,8 +27,11 @@ int main()
     
     s = k+m;
     std::cout << s << std::endl;
+    std::cout << s.Size()<< std::endl;
     String My;
+    std::cout << "Enter: ";
     std::cin >> My;
+    std::cout << My << std::endl;
     std::cout << My.Size() << std::endl;
     return 0;
 }
