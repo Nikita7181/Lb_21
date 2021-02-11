@@ -99,7 +99,7 @@ int String::Search(String& My)// поиск
     return -1;
 }
 
-void String::replacement(char* My, char* My1)// функция замены симфолов
+void String::replacement(String My, String My1)// функция замены симфолов
 // сначала символ который хотим замнить, потм символ, который хотим вставить
 {
     int counter = 0;
