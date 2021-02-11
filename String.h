@@ -5,15 +5,15 @@ class String
 {
 private:
     char* str;
+    int Size(const char* str);// определение длинны строки, функция класса
 public:
     char* get_str();// геттер
-    int Size(const char* str);// определение длинны строки, функция класса
     int Size();// пользовательская функция(выполняется на объекте класаа)
     String();// конструктор по умолчанию
     String(const char* ob);// конструктор с параметрами
     String( String& ob);//конструктор копирования
     int Search(String& My);// поиск подстроки
-    void replacement(char* My, char* My1);// функция замены симфолов
+    void replacement(String My, String My1);// функция замены симфолов
     char operator[](int index);// получение по индексу
     bool operator==(String& My);// сравнение
     String& operator=(String& My);// присваивание
