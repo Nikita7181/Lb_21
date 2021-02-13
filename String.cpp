@@ -51,8 +51,9 @@ char* String::get_str()// геттер
 }
 
 
-String::String(): str(nullptr)//Конструктор по умолчпнию
+String::String()//Конструктор по умолчпнию
 {
+    str = nullptr;
 }
 
 String::String(const char* ob)//конструктор с параметрами
@@ -66,7 +67,7 @@ String::String(const char* ob)//конструктор с параметрами
     }
 }
 
-String::String( String& ob)//конструктор копирования
+String::String(String& ob)//конструктор копирования
 {
     int length=Size(ob.str);
     
@@ -85,18 +86,47 @@ String::~String()//деструктор
     }
 }
 
-int String::Search(String& My)// поиск
+int String::Search(char My)// поиск
 {
     
-    for (int i = 0; i < Size(str); ++i)
+    for (int i = 0; i < Size(str); i++)
     {
-        if (My.str[0]==str[i])
+        if (My==str[i])
         {
             std::cout << "position: ";
             return i;
         }
     }
     return -1;
+}
+
+int String::Search(char* My)
+{
+        int size = Size(str);
+        int size_m=Size(My);
+        for (int i = 0; i < size; i++)
+        {
+            if ((My[0]==str[i]) && (size-i >= size_m))
+            {
+                for (int j = 1; j < size_m; j++)
+                {
+                    if ((My[j]!=str[j+i-1]) && (size-i >= size_m))
+                    {
+                        break;
+                    }
+                    else if((j == size_m - 1) &&  My[j] == str [i+j-1])
+                    {
+                        std::cout << "position: ";
+                        return i;
+                    }
+                    else if(size-i < size_m)
+                        return -1;
+                    
+                }
+                
+            }
+        }
+        return -1;
 }
 
 void String::replacement(String My, String My1)// функция замены симфолов
@@ -177,11 +207,15 @@ std::ostream& operator<<(std::ostream& os, String& My)// вывод
 
 std::istream& operator>>(std::istream& is, String& My)// оператор ввода(в разработке)
 {
-    char* tmp = new char[1024];
-    
-    is>> tmp;
-    String temp;
-    My = temp;
+    char* m = new char[1024];
+    for(int i=0; i < 1024; i++)
+    {
+        m[i] = '\0';
+    }
+    std::cin >> m;
+    std::cin.ignore(1, '\n');
+    String tmp(m);
+    My = tmp;
     return is;
 }
 
