@@ -12,9 +12,14 @@ int main()
     std::cout << test.Search('b')<<std::endl;
     std::cout << test.Search("ffa")<<std::endl;
     test.replacement( "a",  "l");
+    std::cout <<"Enter: ";
    std::cout << test << std::endl;
    test_3 = test_2 + test;
    std::cout << test_3 << std::endl;
+   if(test == test_2)
+       std::cout << "true" << std::endl;
+   else
+       std::cout << "false" << std::endl;
     std::cin >> test_4;
     std::cout << test_4.Size() << std::endl;
     std::cout << test_4 << std::endl;
