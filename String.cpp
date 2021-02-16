@@ -212,8 +212,7 @@ std::istream& operator>>(std::istream& is, String& My)// оператор вво
     {
         m[i] = '\0';
     }
-    std::cin >> m;
-    std::cin.ignore(1, '\n');
+    is >> m;
     String tmp(m);
     My = tmp;
     return is;
