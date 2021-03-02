@@ -27,4 +27,3 @@ public:
 //String& operator+( String& My1, String& My2);// инкапсуляция
 std::ostream& operator<<(std::ostream& os, String& My);// вывод
 std::istream& operator>>(std::istream& os, String& My);//ввод(в разработке)
-
