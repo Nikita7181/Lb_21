@@ -58,23 +58,25 @@ String::String()//Конструктор по умолчпнию
 String::String(const char* ob)//конструктор с параметрами
 {
     int length=Size(ob);
-    str = new char[length];
+    str = new char[length+1];
     
     for (int i = 0; i < length; i++)
     {
-        str[i] =ob[i];
+        str[i] = ob[i];
     }
+    str[length] = '\0';
 }
 
 String::String(String& ob)//конструктор копирования
 {
     int length=Size(ob.str);
     
-    str = new char[length];
+    str = new char[length+1];
     for (int i = 0; i < length; i++)
     {
         str[i] =ob.str[i];
     }
+    str[length] = '\0';
 }
 
 String::~String()//деструктор
@@ -152,7 +154,7 @@ String& String::operator+(String& My2)// инкапсулция
     
     //const char* tmp = this->get_str();
     //delete [] this->str;
-    char* tmp = new char [s1+s2];
+    char* tmp = new char [s1+s2+1];
     for (int i = 0; i < s1; i++)
     {
         tmp[i] =str[i];
@@ -178,12 +180,12 @@ String& String::operator=(String& My)// оператор присваивани�
     
     delete [] this->str;
     int size = My.Size();
-    this->str = new char [size];
+    this->str = new char [size+1];
     for (int i = 0; i < size; i++)
     {
         this->str[i]=My[i];
     }
-    
+    this->str[size] = '\0';
     return *this;
 }
 
