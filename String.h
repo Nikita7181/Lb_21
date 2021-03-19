@@ -5,7 +5,6 @@
 
 class String
 {
-private:
     char* str;
 public:
     int Size(const char* str);// определение длинны строки, функция класса
